@@ -1,3 +1,5 @@
+import random
+
 class Gearbox(object)
 
     def __init__(self):
@@ -28,6 +30,11 @@ class Gearbox(object)
 
 class Wheel(object)
 
+    def __init__(self):
+        orientation = random.randint(0, 361)
+
+    def rotate(self, revolutions):
+        orientation = (orientation + (revolutions * 360)) % 360
 
 class Engine(object)
 
