@@ -1,6 +1,6 @@
 import random
 
-class Gearbox(object)
+class Gearbox(object):
 
     def __init__(self):
         self.wheels = {'frontLeft':Wheel(), 'frontRight':Wheel(), 'rearLeft':Wheel(), 'rearRight':Wheel()}
@@ -28,7 +28,7 @@ class Gearbox(object)
         if self.clutchEngaged = True:
             self.rotate()
 
-class Wheel(object)
+class Wheel(object):
 
     def __init__(self):
         self.orientation = random.randint(0, 361)
@@ -54,7 +54,7 @@ class Engine(object)
         else:
             self.currentRpm = 0
 
-class Car(object)
+class Car(object):
 
     def __init__(self):
         self.theEngine = Engine()
@@ -62,7 +62,7 @@ class Car(object)
     def updateModel(self, dt):
         self.theEngine.updateModel(dt)
 
-class Tank(object)
+class Tank(object):
 
     def __init__(self):
         self.capacity = 100
