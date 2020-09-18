@@ -40,10 +40,16 @@ class Engine(object)
     def updateModel(self, dt):
         if theTank > 0:
             currentRpm = throttlePosition * maxRpm
+
         else:
             return
 
 class Car(object)
 
+    def __init__(self):
+        theEngine = Engine()
+
+    def updateModel(self, dt):
+        theEngine.updateModel(dt)
 
 class Tank(object)
