@@ -9,7 +9,7 @@ class Gearbox(object):
         self.gears = [0, 0.8, 1, 1.4, 2.2, 3.8]
 
     def shiftUp(self):
-        if self.clutchEngaged = True:
+        if self.clutchEngaged == True:
             return
         elif self.currentGear < 5:
             self.currentGear = + 1
@@ -17,7 +17,7 @@ class Gearbox(object):
             return
 
     def shiftDown(self):
-        if self.clutchEngaged = True:
+        if self.clutchEngaged == True:
             return
         elif self.currentGear > 0:
             self.currentGear = - 1
@@ -25,8 +25,11 @@ class Gearbox(object):
             return
 
     def rotate(self, revolutions):
-        if self.clutchEngaged = True:
-            self.rotate()
+        if self.clutchEngaged == True:
+            for x in self.wheels:
+                self.wheels[x].rotate(self.revolutions * self.gears[self.currentGear])
+        else:
+            return
 
 class Wheel(object):
 
@@ -36,7 +39,7 @@ class Wheel(object):
     def rotate(self, revolutions):
         self.orientation = (self.orientation + (self.revolutions * 360)) % 360
 
-class Engine(object)
+class Engine(object):
 
     def __init__(self):
         self.throttlePosition = 0
@@ -47,7 +50,7 @@ class Engine(object)
         self.theTank = Tank()
 
     def updateModel(self, dt):
-        if self.theTank > 0:
+        if self.theTank.contents > 0:
             self.currentRpm = self.throttlePosition * self.maxRpm
             self.theTank.remove(self.currentRpm * self.consumptionConstant)
             self.theGearbox.rotate(self.currentRpm * (dt / 60))
