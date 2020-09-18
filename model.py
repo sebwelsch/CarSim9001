@@ -29,6 +29,19 @@ class Wheel(object)
 
 class Engine(object)
 
+    def __init__(self):
+        throttlePosition = 0
+        theGearbox = Gearbox()
+        currentRpm = 0
+        consumptionConstant = 0.0025
+        maxRpm = 100
+        theTank = Tank()
+
+    def updateModel(self, dt):
+        if theTank > 0:
+            currentRpm = throttlePosition * maxRpm
+        else:
+            return
 
 class Car(object)
 
