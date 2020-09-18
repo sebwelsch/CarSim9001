@@ -3,76 +3,76 @@ import random
 class Gearbox(object)
 
     def __init__(self):
-        wheels = {'frontLeft':Wheel(), 'frontRight':Wheel(), 'rearLeft':Wheel(), 'rearRight':Wheel()}
-        currentGear = 0
-        clutchEngaged = False
-        gears = [0, 0.8, 1, 1.4, 2.2, 3.8]
+        self.wheels = {'frontLeft':Wheel(), 'frontRight':Wheel(), 'rearLeft':Wheel(), 'rearRight':Wheel()}
+        self.currentGear = 0
+        self.clutchEngaged = False
+        self.gears = [0, 0.8, 1, 1.4, 2.2, 3.8]
 
     def shiftUp(self):
-        if clutchEngaged = True:
+        if self.clutchEngaged = True:
             return
-        elif currentGear < 5:
-            currentGear = + 1
+        elif self.currentGear < 5:
+            self.currentGear = + 1
         else:
             return
 
     def shiftDown(self):
-        if clutchEngaged = True:
+        if self.clutchEngaged = True:
             return
-        elif currentGear > 0:
-            currentGear = - 1
+        elif self.currentGear > 0:
+            self.currentGear = - 1
         else:
             return
 
     def rotate(self, revolutions):
-        if clutchEngaged = True:
-            rotate()
+        if self.clutchEngaged = True:
+            self.rotate()
 
 class Wheel(object)
 
     def __init__(self):
-        orientation = random.randint(0, 361)
+        self.orientation = random.randint(0, 361)
 
     def rotate(self, revolutions):
-        orientation = (orientation + (revolutions * 360)) % 360
+        self.orientation = (self.orientation + (self.revolutions * 360)) % 360
 
 class Engine(object)
 
     def __init__(self):
-        throttlePosition = 0
-        theGearbox = Gearbox()
-        currentRpm = 0
-        consumptionConstant = 0.0025
-        maxRpm = 100
-        theTank = Tank()
+        self.throttlePosition = 0
+        self.theGearbox = Gearbox()
+        self.currentRpm = 0
+        self.consumptionConstant = 0.0025
+        self.maxRpm = 100
+        self.theTank = Tank()
 
     def updateModel(self, dt):
-        if theTank > 0:
-            currentRpm = throttlePosition * maxRpm
-            theTank.remove(currentRpm * consumptionConstant)
-            theGearbox.rotate(currentRpm * (dt / 60))
+        if self.theTank > 0:
+            self.currentRpm = self.throttlePosition * self.maxRpm
+            self.theTank.remove(self.currentRpm * self.consumptionConstant)
+            self.theGearbox.rotate(self.currentRpm * (dt / 60))
         else:
-            currentRpm = 0
+            self.currentRpm = 0
 
 class Car(object)
 
     def __init__(self):
-        theEngine = Engine()
+        self.theEngine = Engine()
 
     def updateModel(self, dt):
-        theEngine.updateModel(dt)
+        self.theEngine.updateModel(dt)
 
 class Tank(object)
 
     def __init__(self):
-        capacity = 100
-        contents = 100
+        self.capacity = 100
+        self.contents = 100
 
     def remove(self, amount):
-        if contents > 0:
-            contents = contents - amount
+        if self.contents > 0:
+            self.contents = self.contents - amount
         else:
             return
 
     def refuel(self):
-        contents = capacity
+        self.contents = self.capacity
