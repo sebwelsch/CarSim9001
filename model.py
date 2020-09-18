@@ -21,6 +21,9 @@ class Gearbox(object)
         else:
             return
 
+    def rotate(self, revolutions):
+        print()
+
 class Wheel(object)
 
 
