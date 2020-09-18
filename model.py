@@ -40,9 +40,10 @@ class Engine(object)
     def updateModel(self, dt):
         if theTank > 0:
             currentRpm = throttlePosition * maxRpm
-
+            theTank.remove(currentRpm * consumptionConstant)
+            theGearbox.rotate(currentRpm * (dt / 60))
         else:
-            return
+            currentRpm = 0
 
 class Car(object)
 
