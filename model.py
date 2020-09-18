@@ -1,6 +1,7 @@
 class Gearbox(object)
 
     def __init__(self):
+        wheels = {'frontLeft':Wheel(), 'frontRight':Wheel(), 'rearLeft':Wheel(), 'rearRight':Wheel()}
         currentGear = 0
         clutchEngaged = False
         gears = [0, 0.8, 1, 1.4, 2.2, 3.8]
@@ -22,7 +23,8 @@ class Gearbox(object)
             return
 
     def rotate(self, revolutions):
-        print()
+        if clutchEngaged = True:
+            rotate()
 
 class Wheel(object)
 
