@@ -53,3 +53,16 @@ class Car(object)
         theEngine.updateModel(dt)
 
 class Tank(object)
+
+    def __init__(self):
+        capacity = 100
+        contents = 100
+
+    def remove(self, amount):
+        if contents > 0:
+            contents = contents - amount
+        else:
+            return
+
+    def refuel(self):
+        contents = capacity
