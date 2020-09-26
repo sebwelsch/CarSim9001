@@ -20,14 +20,14 @@ class Gearbox(object):
         if self.clutchEngaged == True:
             return
         elif self.currentGear > 0:
-            self.currentGear = - 1
+            self.currentGear -= 1
         else:
             return
 
     def rotate(self, revolutions):
         if self.clutchEngaged == True:
             for x in self.wheels:
-                self.wheels[x].rotate(self.revolutions * self.gears[self.currentGear])
+                self.wheels[x].rotate(revolutions * self.gears[self.currentGear])
         else:
             return
 
