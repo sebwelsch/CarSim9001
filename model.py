@@ -12,7 +12,7 @@ class Gearbox(object):
         if self.clutchEngaged == True:
             return
         elif self.currentGear < 5:
-            self.currentGear = + 1
+            self.currentGear += 1
         else:
             return
 
@@ -37,7 +37,7 @@ class Wheel(object):
         self.orientation = random.randint(0, 361)
 
     def rotate(self, revolutions):
-        self.orientation = (self.orientation + (self.revolutions * 360)) % 360
+        self.orientation = (self.orientation + (revolutions * 360)) % 360
 
 class Engine(object):
 
